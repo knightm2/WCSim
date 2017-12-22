@@ -1,0 +1,33 @@
+# This macro file is used to visualized the geometry of detectors with RayTracer.
+# The output of the macro file will be three .jpeg files titled g4RayTracer.jpeg, g4RayTracer1.jpeg, and g4RayTracer2.jpeg.
+# The .jpeg files show the geometry of the detector from different viewpoints.
+
+##select RayTracer Visualization
+/WCSim/WCVisChoice RayTracer
+
+/WCSim/Construct # This must be uncommented to use RayTracer
+
+## Errors may arise if using RayTracer and attempting to view the detector from a distance further than 40 meters
+## If this occurs, attempt changing the y-direction
+
+/vis/open RayTracer
+#/vis/viewer/set/upVector 0 1 0
+
+#/vis/rayTracer/target 0 0 0 m
+#/vis/rayTracer/eyePosition -2 0 -3 m
+
+#/vis/scene/add/trajectories
+/vis/rayTracer/target -3.2 0 0 m
+/vis/rayTracer/eyePosition -3.2 0 3 m
+/vis/rayTracer/trace g4RayTracer.jpeg
+
+/vis/rayTracer/target -3.2 0 0 m
+/vis/rayTracer/eyePosition -2.8 0 0 m
+/vis/rayTracer/trace g4RayTracer1.jpeg
+
+/vis/rayTracer/target 0 0 0 m
+/vis/rayTracer/eyePosition 1 0 0 m
+/vis/rayTracer/trace g4RayTracer2.jpeg 
+
+# Make default RayTracer background black (RGB values) as OGL
+/vis/rayTracer/backgroundColour 0 0 0
