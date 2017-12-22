@@ -330,6 +330,31 @@ protected:
 };
 
 // ToDo: make object of classes instead of infinite cp-pastes
+class PMT3point5inchR12199_02 : public WCSimPMTObject
+{
+
+public:
+  
+  PMT3point5inchR12199_02();
+  ~PMT3point5inchR12199_02();
+ 
+public:
+  G4String GetPMTName() ;
+  G4double GetExposeHeight();
+  G4double GetRadius();
+  G4float* Getqpe();
+  G4double* GetQE();
+  G4float* GetQEWavelength();
+  G4float  GetmaxQE();
+  float    HitTimeSmearing(float);
+  G4double GetPMTGlassThickness();
+  G4float  GetDarkRate();
+  G4float  GetDarkRateConversionFactor();
+protected:
+  G4float* GetCollectionEfficiencyArray();
+};
+
+// ToDo: make object of classes instead of infinite cp-pastes
 class PMT4inchR12199_02 : public WCSimPMTObject
 {
 

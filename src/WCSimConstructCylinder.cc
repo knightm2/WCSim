@@ -55,7 +55,7 @@ G4LogicalVolume* WCSimDetectorConstruction::ConstructCylinder()
   // Positions
   //-----------------------------------------------------
 
-  debugMode = false;
+  debugMode = true;
   
   WCPosition=0.;//Set the WC tube offset to zero
 

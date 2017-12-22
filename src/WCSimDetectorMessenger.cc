@@ -28,11 +28,14 @@ WCSimDetectorMessenger::WCSimDetectorMessenger(WCSimDetectorConstruction* WCSimD
 			  "EggShapedHyperK_withHPD\n"
                           "nuPRISM\n"
                           "nuPRISM_mPMT\n"
-			  "Cylinder_60x74_3inchmPMT_14perCent\n"
+			  "NuPRISM_SinglemPMT\n"
+        "NuPRISM_SinglemPMT_3point5inch\n"        
+                  "Cylinder_60x74_3inchmPMT_14perCent\n"
 			  "Cylinder_60x74_3inchmPMT_40perCent\n"
 			  "Cylinder_60x74_3inch_14perCent\n"
 			  "Cylinder_60x74_3inch_40perCent\n"
 			  "TestSinglemPMT\n"
+			  "Test\n"
                          );
   PMTConfig->SetParameterName("PMTConfig", false);
   PMTConfig->SetCandidates("SuperK "
@@ -48,12 +51,15 @@ WCSimDetectorMessenger::WCSimDetectorMessenger(WCSimDetectorConstruction* WCSimD
 			   "EggShapedHyperK_withHPD "
                            "nuPRISM "
                            "nuPRISM_mPMT "
+                           "NuPRISM_SinglemPMT "
+                           "NuPRISM_SinglemPMT_3point5inch "
 			   "Cylinder_60x74_3inchmPMT_14perCent "
 			   "Cylinder_60x74_3inchmPMT_40perCent "
 			   "Cylinder_60x74_3inch_14perCent "
 			   "Cylinder_60x74_3inch_40perCent "
 			   "TestSinglemPMT\n"
-                           );
+			   "Test"
+			  );
   PMTConfig->AvailableForStates(G4State_PreInit, G4State_Idle);
 
   WCVisChoice = new G4UIcmdWithAString("/WCSim/WCVisChoice",this);
@@ -182,6 +188,7 @@ WCSimDetectorMessenger::WCSimDetectorMessenger(WCSimDetectorConstruction* WCSimD
 				    "BoxandLine20inchHQE "
 				    "BoxandLine12inchHQE "
 				    "PMT3inchR12199_02 "
+            "PMT3point5inchR12199_02 "
 				    "PMT4inchR12199_02 "
 				    "PMT5inchR12199_02 "
 				    ); 
@@ -199,6 +206,7 @@ WCSimDetectorMessenger::WCSimDetectorMessenger(WCSimDetectorConstruction* WCSimD
 				    "BoxandLine20inchHQE "
 				    "BoxandLine12inchHQE "
 				    "PMT3inchR12199_02 "
+            "PMT3point5inchR12199_02 "
 				    "PMT4inchR12199_02 "
 				    "PMT5inchR12199_02 "
 				    ); 
@@ -296,6 +304,7 @@ WCSimDetectorMessenger::WCSimDetectorMessenger(WCSimDetectorConstruction* WCSimD
           "PMT3inch\n"
           "PMT3inchGT\n"
           "PMT3inchR12199_02\n"
+          "PMT3point5inchR12199_02 "
           "PMT5inch\n"
           "PMT8inch\n"
           "PMT10inchHQE\n"
@@ -304,7 +313,7 @@ WCSimDetectorMessenger::WCSimDetectorMessenger(WCSimDetectorConstruction* WCSimD
           "HPD20inchHQE\n"
           "PMT20inch\n");
   SetPMTType->SetParameterName("PMTType", false);
-  SetPMTType->SetCandidates("PMT3inch PMT3inchGT PMT3inchR12199_02 PMT5inch PMT8inch PMT10inchHQE PMT10inch PMT12inchHQE HPD20inchHQE PMT20inch");
+  SetPMTType->SetCandidates("PMT3inch PMT3inchGT PMT3inchR12199_02 PMT3point5inchR12199_02 PMT5inch PMT8inch PMT10inchHQE PMT10inch PMT12inchHQE HPD20inchHQE PMT20inch");
   SetPMTType->SetDefaultValue("PMT10inch");
 
   // Next, the PMT coverage
@@ -373,6 +382,9 @@ void WCSimDetectorMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
 		WCSimDetector->SetIsEggShapedHyperK(false);
 		if ( newValue == "SuperK") {
 		  WCSimDetector->SetSuperKGeometry();
+		} 
+		if ( newValue == "Test" ) {
+		  WCSimDetector->SetTestGeometry();
 		} else if ( newValue == "SuperK_20inchPMT_20perCent" ){
 		  WCSimDetector->SuperK_20inchPMT_20perCent();
 		} else if ( newValue == "SuperK_20inchBandL_20perCent" ){
@@ -411,7 +423,14 @@ void WCSimDetectorMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
                 } else if ( newValue == "nuPRISM_mPMT") {
 		  WCSimDetector->SetIsNuPrism(true);
 		  WCSimDetector->SetNuPrism_mPMTGeometry();
-		} else
+		} else if ( newValue == "NuPRISM_SinglemPMT") {
+		  WCSimDetector->SetIsNuPrism(true);
+		  WCSimDetector->SetNuPrism_SinglemPMTGeometry();
+		} else if (newValue == "NuPRISM_SinglemPMT_3point5inch") { 
+      WCSimDetector->SetIsNuPrism(true);
+      WCSimDetector->SetNuPrism_SinglemPMT_3point5inchGeometry();
+    }
+      else
 		  G4cout << "That geometry choice is not defined!" << G4endl;
 	}
   

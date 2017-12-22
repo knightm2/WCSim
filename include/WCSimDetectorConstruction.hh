@@ -91,8 +91,11 @@ public:
   void SetHyperKGeometry();
   void SetNuPrismGeometry(G4String PMTType, G4double PMTCoverage, G4double detectorHeight, G4double detectorDiameter, G4double verticalPosition);
   void SetNuPrism_mPMTGeometry();
+  void SetNuPrism_SinglemPMTGeometry();
+  void SetNuPrism_SinglemPMT_3point5inchGeometry();
   void SetDefaultNuPrismGeometry();
   void UpdateGeometry();
+  void SetTestGeometry();
 
   G4String GetDetectorName()      {return WCDetectorName;}
   G4double GetWaterTubeLength()   {return WCLength;}

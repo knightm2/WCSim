@@ -178,8 +178,9 @@ G4LogicalVolume* WCSimDetectorConstruction::ConstructPMT(G4String PMTName, G4Str
   
   if (Vis_Choice == "RayTracer"){
     // Makes the volume containing the PMT visible, solid, and forces the auxiliary edges to be viewed.
-    G4VisAttributes* WCPMTVisAtt = new G4VisAttributes(G4Colour(0.0,0.0,1.0));
-    WCPMTVisAtt->SetForceSolid(true); // force the object to be visualized with a surface
+    G4VisAttributes* WCPMTVisAtt = new G4VisAttributes(G4Colour(0.0,0.5,0.5));
+    WCPMTVisAtt->SetForceWireframe(true);
+    //WCPMTVisAtt->SetForceSolid(true); // force the object to be visualized with a surface
     WCPMTVisAtt->SetForceAuxEdgeVisible(true); // force auxiliary edges to be shown 
     
     logicWCPMT->SetVisAttributes(WCPMTVisAtt);
@@ -245,6 +246,7 @@ G4LogicalVolume* WCSimDetectorConstruction::ConstructPMT(G4String PMTName, G4Str
   if (Vis_Choice == "RayTracer"){
     // Adding color and forcing the inner portion of the PMT's to be viewed
     G4VisAttributes* WCPMTVisAtt = new G4VisAttributes(G4Colour(0.0,0.0,1.0));
+    //WCPMTVisAtt->SetForceWireframe(true);
     WCPMTVisAtt->SetForceSolid(true); // force the object to be visualized with a surface
     WCPMTVisAtt->SetForceAuxEdgeVisible(true); // force auxiliary edges to be shown 
     
@@ -300,7 +302,8 @@ G4LogicalVolume* WCSimDetectorConstruction::ConstructPMT(G4String PMTName, G4Str
   if (Vis_Choice == "RayTracer"){
     // Blue wireframe visual style
     // Used in the RayTracer visualizer
-    G4VisAttributes* WCPMTVisAtt = new G4VisAttributes(G4Colour(0.0,0.0,1.0));
+    G4VisAttributes* WCPMTVisAtt = new G4VisAttributes(G4Colour(0.61,0.39,0.0));
+    //WCPMTVisAtt->SetForceWireframe(true);
     WCPMTVisAtt->SetForceSolid(true); // force the object to be visualized with a surface
     WCPMTVisAtt->SetForceAuxEdgeVisible(true); // force auxiliary edges to be shown 
     //logicGlassFaceWCPMT->SetVisAttributes(G4VisAttributes::Invisible);
@@ -357,6 +360,7 @@ G4LogicalVolume* WCSimDetectorConstruction::ConstructPMT(G4String PMTName, G4Str
     
     // Visualize
     G4VisAttributes* WCPMTVisAtt3 = new G4VisAttributes(G4Colour(0.0,0.0,1.0));
+    //WCPMTVisAtt3->SetForceWireframe(true);
     WCPMTVisAtt3->SetForceSolid(true);
     logicReflector->SetVisAttributes(WCPMTVisAtt3);
     
@@ -410,9 +414,9 @@ G4LogicalVolume* WCSimDetectorConstruction::ConstructPMT(G4String PMTName, G4Str
 
     // Visualize
     G4VisAttributes* WCPMTVisAtt_sup = new G4VisAttributes(G4Colour(0.3,0.3,0.3));
-    WCPMTVisAtt_sup->SetForceSolid(true);
     logicWCPMTsupport->SetVisAttributes(WCPMTVisAtt_sup);
-  
+    //WCPMTVisAtt_sup->SetForceWireframe(true);
+    WCPMTVisAtt_sup->SetForceSolid(true);
 
     //Reflector support
     if(id_reflector_height > 0.1*CLHEP::mm 

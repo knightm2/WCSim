@@ -445,11 +445,13 @@ G4LogicalVolume* WCSimDetectorConstruction::ConstructMultiPMT(G4String PMTName, 
     /* Set all visualization here for better overview. */
     // Gray wireframe visual style
     G4VisAttributes* VisAttGrey = new G4VisAttributes(G4Colour(0.2,0.2,0.2));
-    //VisAttGrey->SetForceWireframe(true);
-    VisAttGrey->SetForceSolid(true); 
+    VisAttGrey->SetForceWireframe(true);
+    //VisAttGrey->SetForceSolid(true); 
     G4VisAttributes* WCPMTVisAtt5 = new G4VisAttributes(G4Colour(.0,1.,1.));
-    WCPMTVisAtt5->SetForceSolid(true); 
+    WCPMTVisAtt5->SetForceWireframe(true);
+    //WCPMTVisAtt5->SetForceSolid(true); 
     G4VisAttributes* VisAttYellow = new G4VisAttributes(G4Colour(1.0,1.,0.));
+    //VisAttYellow->SetForceWireframe(true);
     VisAttYellow->SetForceSolid(true); 
     
       if(showme){
@@ -597,7 +599,8 @@ G4LogicalVolume* WCSimDetectorConstruction::ConstructMultiPMT(G4String PMTName, 
       
       new G4LogicalSkinSurface("FoamSurfaceCyl",logic_mPMT_cylinder_inner, OpGelFoamSurface);
       G4VisAttributes* VisAttRed = new G4VisAttributes(G4Colour(1.0,0.,0.));
-      VisAttRed->SetForceSolid(true); 
+      VisAttRed->SetForceWireframe(true);
+      //VisAttRed->SetForceSolid(true); 
       logic_mPMT_cylinder_inner->SetVisAttributes(VisAttRed);
 
     }
@@ -654,6 +657,7 @@ G4LogicalVolume* WCSimDetectorConstruction::ConstructMultiPMT(G4String PMTName, 
     new G4LogicalSkinSurface("FoamSurfaceTop",logic_mPMT_top_sphere_inner, OpGelFoamSurface);
     
     G4VisAttributes* VisAttRed = new G4VisAttributes(G4Colour(1.0,0.,0.));
+    //VisAttRed->SetForceWireframe(true);
     VisAttRed->SetForceSolid(true); 
     logic_mPMT_top_sphere_inner->SetVisAttributes(VisAttRed);
   }
@@ -661,12 +665,22 @@ G4LogicalVolume* WCSimDetectorConstruction::ConstructMultiPMT(G4String PMTName, 
   /* Set all visualization here for better overview. */
   // Gray wireframe visual style
   G4VisAttributes* VisAttGrey = new G4VisAttributes(G4Colour(0.2,0.2,0.2));
-  //VisAttGrey->SetForceWireframe(true);
-  VisAttGrey->SetForceSolid(true); 
-  G4VisAttributes* WCPMTVisAtt5 = new G4VisAttributes(G4Colour(.0,1.,1.));
-  WCPMTVisAtt5->SetForceSolid(true); 
+  VisAttGrey->SetForceWireframe(true);
+  //VisAttGrey->SetForceSolid(true); 
+  G4VisAttributes* WCPMTVisAtt5 = new G4VisAttributes(G4Colour(0.0,0.8,0.2));
+  WCPMTVisAtt5->SetForceWireframe(true);
+  //WCPMTVisAtt5->SetForceSolid(true); 
   G4VisAttributes* VisAttYellow = new G4VisAttributes(G4Colour(1.0,1.,0.));
+  //VisAttYellow->SetForceWireframe(true);
   VisAttYellow->SetForceSolid(true); 
+
+  //G4VisAttributes* VisAttGrey = new G4VisAttributes(G4Colour(0.2,0.2,0.2));
+  //VisAttGrey->SetForceWireframe(true);
+  //VisAttGrey->SetForceSolid(true); 
+  //G4VisAttributes* WCPMTVisAtt5 = new G4VisAttributes(G4Colour(.0,1.,1.));
+  //WCPMTVisAtt5->SetForceSolid(true); 
+  //G4VisAttributes* VisAttYellow = new G4VisAttributes(G4Colour(1.0,1.,0.));
+  //VisAttYellow->SetForceSolid(true); 
   
   
   if(showme){

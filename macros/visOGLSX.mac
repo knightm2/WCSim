@@ -14,7 +14,7 @@
 #/vis/viewer/set/upVector 0 1 0
 #/vis/viewer/set/viewpointThetaPhi 50 165 deg
 #/vis/viewer/zoom 1.6
-#/vis/ogl/set/printMode pixmap
+/vis/ogl/set/printMode pixmap
 #/vis/ogl/printEPS
 
 /vis/scene/add/hits

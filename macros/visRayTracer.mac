@@ -11,16 +11,16 @@
 ## If this occurs, attempt changing the y-direction
 
 /vis/open RayTracer
-/vis/viewer/set/upVector 0 0 1
+/vis/viewer/set/upVector 0 1 0
 
-/vis/rayTracer/eyePosition -15 0 -15
+/vis/rayTracer/eyePosition -2 0 -2
 /vis/rayTracer/trace g4RayTracer.jpeg # Viewpoint is inside the inner detector, looking towards the top corner.
 
-/vis/rayTracer/eyePosition 70 1 70
-/vis/rayTracer/trace g4RayTracer1.jpeg # Viewpoint is outside the detector in the x and z directions, looking down at the detector.
+#/vis/rayTracer/eyePosition 70 1 70
+#/vis/rayTracer/trace g4RayTracer1.jpeg # Viewpoint is outside the detector in the x and z directions, looking down at the detector.
 
-/vis/rayTracer/eyePosition 70 1 20
-/vis/rayTracer/trace g4RayTracer2.jpeg # Viewpoint is outside the detector again, but closer to the top cap in the z direction.
+#/vis/rayTracer/eyePosition 70 1 20
+#/vis/rayTracer/trace g4RayTracer2.jpeg # Viewpoint is outside the detector again, but closer to the top cap in the z direction.
 
 # Make default RayTracer background black (RGB values) as OGL
 /vis/rayTracer/backgroundColour 0 0 0

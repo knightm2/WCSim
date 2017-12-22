@@ -8,25 +8,27 @@
 # Default config if you do nothing is currently SuperK
 #
 
-/WCSim/WCgeom nuPRISM
+#/WCSim/WCgeom nuPRISM
 
-#Select which PMT to use
-/WCSim/nuPRISM/SetPMTType PMT8inch
-/WCSim/nuPRISM/SetPMTPercentCoverage 40
-#Set height of nuPRISM inner detector
-/WCSim/nuPRISM/SetDetectorHeight 10. m
-#Set vertical position of inner detector, in beam coordinates
-/WCSim/nuPRISM/SetDetectorVerticalPosition -10. m
-#Set diameter of inner detector
-/WCSim/nuPRISM/SetDetectorDiameter 6. m
-/WCSim/Construct
+##Select which PMT to use
+#/WCSim/nuPRISM/SetPMTType PMT8inch
+#/WCSim/nuPRISM/SetPMTPercentCoverage 40
+##Set height of nuPRISM inner detector
+#/WCSim/nuPRISM/SetDetectorHeight 10. m
+##Set vertical position of inner detector, in beam coordinates
+#/WCSim/nuPRISM/SetDetectorVerticalPosition 0. m
+##Set diameter of inner detector
+#/WCSim/nuPRISM/SetDetectorDiameter 8. m
+#/WCSim/Construct
 
 #Use mPMTs settings (uncomment/delete the above)
-#/WCSim/WCgeom nuPRISM_mPMT
-#/WCSim/Construct
+/WCSim/WCgeom NuPRISM_SinglemPMT
+#/WCSim/WCgeom TestSinglemPMT
+/WCSim/Construct
 ## OR for single mPMT mode or updating mPMT parameters:
-#/control/execute macros/mPMT_nuPrism1.mac         ## mPMT options: mPMT_nuPrism1.mac and 2.mac
-
+#/control/execute mPMT_NP1_refl.mac
+#/control/execute macros/mPMT_nuPrism2.mac         ## mPMT options: mPMT_nuPrism1.mac and 2.mac
+#/control/execute mPMT.mac   ##TIM 
 
 #Added for the PMT QE option 08/17/10 (XQ)
 # 1. Stacking only mean when the photon is generated
@@ -42,7 +44,7 @@
 /WCSim/PMTQEMethod     Stacking_Only
 #/WCSim/PMTQEMethod     Stacking_And_SensitiveDetector
 #/WCSim/PMTQEMethod     SensitiveDetector_Only
-#/WCSim/PMTQEMethod     DoNotApplyQE
+/WCSim/PMTQEMethod     DoNotApplyQE
 
 #turn on or off the collection efficiency
 /WCSim/PMTCollEff on
@@ -84,7 +86,7 @@
 /DarkRate/SetDarkWindow 4000
 
 #Uncomment one of the lines below if you want to use the OGLSX or RayTracer visualizer
-#/control/execute macros/visOGLSX.mac
+/control/execute macros/visOGLSX.mac
 #/control/execute macros/visRayTracer.mac
 #/control/execute macros/visOGLQT.mac             ## NEW
 
